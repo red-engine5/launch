@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobby</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Animated RGB blurred background */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, cyan, magenta, lime, orange, pink);
+            background-size: 300% 300%;
+            filter: blur(20px);
+            animation: gradientAnimation 12s infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .lobby-container {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 20px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .lobby-container h1 {
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        .lobby-container .options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .lobby-container button {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .lobby-container .active {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .lobby-container .active:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .lobby-container .coming-soon {
+            background-color: #cccccc;
+            color: #666666;
+            cursor: not-allowed;
+        }
+
+        .lobby-container .coming-soon:hover {
+            transform: none;
+        }
+
+        .lobby-container .red-button {
+            background-color: #ff4d4d;
+            color: white;
+        }
+
+        .lobby-container .red-button:hover {
+            background-color: #e60000;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="lobby-container">
+        <h1>Lobby</h1>
+        <div class="options">
+            <button class="active" onclick="window.location.href='games.html'">Games</button>
+            <button class="active" onclick="window.location.href='photos.html'">Photos</button>
+            <button class="coming-soon">Premade Hacking</button>
+            <button class="coming-soon">Modded Apps</button>
+            <button class="red-button" onclick="alert('Help or info button clicked!')">?</button>
+        </div>
+    </div>
+</body>
+</html>
